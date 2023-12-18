@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\AgentSeeder;
+use Database\Seeders\NekretninaSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,10 @@ class DatabaseSeeder extends Seeder
 
         $AgentSeeder = new AgentSeeder;
         $AgentSeeder->run();
+
+        $NekretninaSeeder = new NekretninaSeeder;
+        $NekretninaSeeder->run();
+
+
     }
 }
