@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NekretninaModel extends Model
+class Nekretnina extends Model
 {
     use HasFactory;
 
@@ -24,6 +24,6 @@ class NekretninaModel extends Model
     
     public function kupovine()
     {
-        return $this->hasMany(KupovinaModel::class);
+        return $this->hasMany(Kupovina::class);
     }
 }

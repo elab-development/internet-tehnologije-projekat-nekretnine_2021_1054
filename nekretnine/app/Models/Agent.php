@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AgentModel extends Model
+class Agent extends Model
 {
     use HasFactory;
 
@@ -22,6 +22,6 @@ class AgentModel extends Model
 
     public function kupovine()
     {
-        return $this->hasMany(KupovinaModel::class);
+        return $this->hasMany(Kupovina::class);
     }
 }

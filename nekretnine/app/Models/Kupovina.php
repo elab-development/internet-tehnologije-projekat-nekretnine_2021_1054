@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KupovinaModel extends Model
+class Kupovina extends Model
 {
     use HasFactory;
 
@@ -23,12 +23,12 @@ class KupovinaModel extends Model
     
     public function agent()
     {
-        return $this->belongsTo(AgentModel::class);
+        return $this->belongsTo(Agent::class);
     }
 
     public function nekretnina()
     {
-        return $this->belongsTo(NekretninaModel::class);
+        return $this->belongsTo(Nekretnina::class);
     }
     
     public function user()

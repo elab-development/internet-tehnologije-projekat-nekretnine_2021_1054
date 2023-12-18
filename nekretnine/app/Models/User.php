@@ -47,6 +47,6 @@ class User extends Authenticatable
     
     public function kupovine()
     {
-        return $this->hasMany(KupovinaModel::class);
+        return $this->hasMany(Kupovina::class);
     }
 }
