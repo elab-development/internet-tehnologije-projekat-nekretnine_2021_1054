@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\NekretninaController;
 use App\Http\Controllers\KupovinaController;
-
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,6 +34,8 @@ Route::patch('nekretnine/{id}', [NekretninaController::class, 'updateCena']);
 Route::get('kupovine', [KupovinaController::class, 'index']); 
 
 Route::get('kupovine/{id}', [KupovinaController::class, 'show']); 
+
+Route::get('/search/nekretnine', [SearchController::class, 'searchNekretnine']);
 
 
 

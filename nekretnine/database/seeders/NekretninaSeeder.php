@@ -13,6 +13,6 @@ class NekretninaSeeder extends Seeder
      */
     public function run(): void
     {
-        Nekretnina::factory()->times(8)->create();
+        Nekretnina::factory()->times(15)->create();
     }
 }
