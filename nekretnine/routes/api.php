@@ -6,6 +6,7 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\NekretninaController;
 use App\Http\Controllers\KupovinaController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,6 +37,10 @@ Route::get('kupovine', [KupovinaController::class, 'index']);
 Route::get('kupovine/{id}', [KupovinaController::class, 'show']); 
 
 Route::get('/search/nekretnine', [SearchController::class, 'searchNekretnine']);
+
+//login i registracija
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
 
 
 
