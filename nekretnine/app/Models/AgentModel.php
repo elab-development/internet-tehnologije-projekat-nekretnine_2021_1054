@@ -19,4 +19,9 @@ class AgentModel extends Model
         'email',
         'telefon',
     ];
+
+    public function kupovine()
+    {
+        return $this->hasMany(KupovinaModel::class);
+    }
 }

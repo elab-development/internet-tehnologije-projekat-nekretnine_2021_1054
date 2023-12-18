@@ -20,4 +20,10 @@ class NekretninaModel extends Model
         'slika',
         'cena',
     ];
+
+    
+    public function kupovine()
+    {
+        return $this->hasMany(KupovinaModel::class);
+    }
 }
