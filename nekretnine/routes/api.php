@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\NekretninaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,13 @@ use App\Http\Controllers\AgentController;
 */
 
 Route::resource('agents', AgentController::class);
+
+Route::get('nekretnine', [NekretninaController::class, 'index']); 
+
+Route::get('nekretnine/{id}', [NekretninaController::class, 'show']); 
+
+Route::post('nekretnine', [NekretninaController::class, 'store']); 
+
+Route::put('nekretnine/{id}', [NekretninaController::class, 'update']); 
+
+Route::delete('nekretnine/{id}', [NekretninaController::class, 'destroy']); 
