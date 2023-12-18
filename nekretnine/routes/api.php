@@ -24,14 +24,6 @@ Route::get('nekretnine', [NekretninaController::class, 'index']);
 
 Route::get('nekretnine/{id}', [NekretninaController::class, 'show']); 
 
-Route::post('nekretnine', [NekretninaController::class, 'store']); 
-
-Route::put('nekretnine/{id}', [NekretninaController::class, 'update']); 
-
-Route::delete('nekretnine/{id}', [NekretninaController::class, 'destroy']); 
-
-Route::patch('nekretnine/{id}', [NekretninaController::class, 'updateCena']);
-
 Route::get('kupovine', [KupovinaController::class, 'index']); 
 
 Route::get('kupovine/{id}', [KupovinaController::class, 'show']); 
@@ -41,6 +33,20 @@ Route::get('/search/nekretnine', [SearchController::class, 'searchNekretnine']);
 //login i registracija
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+
+//rute za koje je potrebna autentifikacija
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('nekretnine', [NekretninaController::class, 'store']); 
+
+    Route::put('nekretnine/{id}', [NekretninaController::class, 'update']); 
+
+    Route::delete('nekretnine/{id}', [NekretninaController::class, 'destroy']); 
+
+    Route::patch('nekretnine/{id}', [NekretninaController::class, 'updateCena']);
+
+    Route::post('logout', [AuthController::class, 'logout']);
+});
 
 
 
