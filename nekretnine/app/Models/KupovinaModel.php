@@ -14,11 +14,14 @@ class KupovinaModel extends Model
     protected $fillable = [
         'datumKupovine',
         'nacinPlacanja',
+        'agent_id',
+        'nekretnina_id',
+        'user_id',
     ];
 
 
     
-    public function agentk()
+    public function agent()
     {
         return $this->belongsTo(AgentModel::class);
     }
