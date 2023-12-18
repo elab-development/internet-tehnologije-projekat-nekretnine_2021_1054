@@ -17,8 +17,9 @@ class AgentController extends Controller
     }
 
     //agent na osnovu id-a
-    public function show(Agent $agent)
+    public function show($id)
     {
+        $agent = Agent::findOrFail($id);
         return new AgentResource($agent);
     }
 

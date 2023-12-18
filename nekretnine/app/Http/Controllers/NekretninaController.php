@@ -19,12 +19,13 @@ class NekretninaController extends Controller
     }
 
     //nekretnina na osnovu id-a
-    public function show(Nekretnina $nekretnina)
+    public function show($id)
     {
+        $nekretnina = Nekretnina::findOrFail($id);
         return new NekretninaResource($nekretnina);
     }
 
-    //nov nekretnina
+    //nova nekretnina
     public function store(Request $request)
     {
 
@@ -145,4 +146,18 @@ class NekretninaController extends Controller
              'message' => "Nekretnina uspešno obrisana."
          ],200);
     }
+
+    //menjanje cene nekretnine
+    public function updateCena(Request $request, $id)
+{
+    $request->validate([
+        'cena' => 'required'
+    ]);
+
+    $nekretnina = Nekretnina::findOrFail($id);
+
+    $nekretnina->update(['cena' => $request->input('cena')]);
+
+    return response()->json(['message' => 'Cena nekretnine uspešno izmenjenja', new NekretninaResource($nekretnina)]);
+}
 }

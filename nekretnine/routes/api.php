@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\NekretninaController;
+use App\Http\Controllers\KupovinaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,12 @@ Route::post('nekretnine', [NekretninaController::class, 'store']);
 Route::put('nekretnine/{id}', [NekretninaController::class, 'update']); 
 
 Route::delete('nekretnine/{id}', [NekretninaController::class, 'destroy']); 
+
+Route::patch('nekretnine/{id}', [NekretninaController::class, 'updateCena']);
+
+Route::get('kupovine', [KupovinaController::class, 'index']); 
+
+Route::get('kupovine/{id}', [KupovinaController::class, 'show']); 
+
+
+
