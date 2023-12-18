@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\AgentSeeder;
 use Database\Seeders\NekretninaSeeder;
+use Database\Seeders\KupovinaSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,18 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
         $AgentSeeder = new AgentSeeder;
         $AgentSeeder->run();
 
         $NekretninaSeeder = new NekretninaSeeder;
         $NekretninaSeeder->run();
+
+        $KupovinaSeeder = new KupovinaSeeder;
+        $KupovinaSeeder->run(); 
 
 
     }
