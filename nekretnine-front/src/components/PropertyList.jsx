@@ -1,5 +1,3 @@
-import React from 'react';
-import Property from './Property';
 import slika1 from '../images/slika1.jpg';
 import slika2 from '../images/slika2.jpg';
 import slika3 from '../images/slika3.jpg';
@@ -104,17 +102,6 @@ const staticPropertiesData = [
     },
    
   ];
-
-const PropertyList = () => {
   
-    return (
-      <div className="property-list">
-        {staticPropertiesData.map((property) => (
-          <Property key={property.id} property={property} />
-        ))}
-      </div>
-    );
-  };
-  
-  export { PropertyList, staticPropertiesData };
+  export { staticPropertiesData };
 
