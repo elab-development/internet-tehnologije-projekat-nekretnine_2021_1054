@@ -1,0 +1,157 @@
+.bookings-page {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+    background-image: url('https://asset.mansionglobal.com/editorial/Shenzhens-Tech-Boom-How-the-Sector-is-Transforming-the-Chinese-Citys-Real-Estate-Market/assets/bY4312oZO5/shenzen2-1722x1098.jpeg');
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 800px;
+  }
+
+  .bookings-list {
+    padding-top: 50px;
+    width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+  
+  .property-card {
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #06113C;
+    opacity: 0.9;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    width: 700px;
+    text-align: center;
+  }
+  
+  .property-card:hover {
+    transform: scale(1.04);
+  }
+  
+  .property-header {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .property-header h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  
+  .property-content {
+    text-align: justify;
+    color: white;
+    padding: 20px;
+    line-height: 24px;
+  }
+  
+  .property-content img {
+    width: 700px;
+    height: 450px;
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .property-content p {
+    margin: 0;
+  }
+  
+  .property-content p:first-child {
+    margin-top: 10px;
+  }
+
+  .clear-bookings-button {
+    background-color: #ff4c4c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .clear-bookings-button:hover {
+    background-color: #ff6666;
+  }
+
+    /*naslov booking css*/
+    .booking-text {
+        position: relative;
+        transition: transform 0.2s;
+        text-align: center;
+        margin-left: 470px;
+        margin-right: 470px;
+        margin-top: 50px;
+        color: white;
+        z-index: 1;
+        font-size: 30px;
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    
+      .booking-text:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding-top: 20px;
+        width: 0%;
+        height: 100%;
+        border-radius: 50% 0% 50% 0%;
+        background-color: rgba(255, 249, 215, 0);
+        transition: all 0.5s;
+        z-index: -1;
+    
+      }
+    
+      .booking-text:hover:after {
+        width: 100%;
+        background-color: #fd9648;
+      }
+      .booking-text:hover {
+        transform: scale(1.1);
+    
+      }
+
+      .booking-cost{
+        padding: 30px;
+        background-color: #06113C;
+        opacity: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 80px;
+        color: #fff;
+        border-radius: 15px;
+      }
+       .booking-cost p {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      
+      .booking-cost .clear-bookings-button {
+        background-color: #ff4c4c;
+        font-size: 20px;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .booking-cost .clear-bookings-button:hover {
+        background-color: #ff6666;
+      }
