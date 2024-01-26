@@ -1,0 +1,118 @@
+
+
+  .home, .row{
+    background-image: url("https://s7d9.scene7.com/is/image/ledcor/Belmont%20Reunion%2003?qlt=85&wid=480&ts=1691085180535&dpr=on,2.625");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 900px;
+    background-size: cover;
+    padding-top: 100px;
+  
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .column {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  h2{
+    font-size: 40px;
+    letter-spacing: 5px;
+    padding-left: 60px;
+    text-align: center;
+  }
+  .box {
+    align-self: flex-end;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    height: 20px;
+    margin: 0 auto 0 auto;
+    transform-origin: bottom;
+    width: 800px;
+  }
+  
+  h3{
+    font-size: 40px;
+    letter-spacing: 5px;
+    text-align: center;
+  }
+  
+  h4{
+    font-size: 20px;
+    text-align: justify;
+    padding-left: 200px;
+    padding-bottom: 20px;
+  }
+  
+    /* za 2 diva */
+    .flex-container {
+  
+      display: flex;
+      flex-wrap: wrap;
+      background: rgb(43,41,78);
+      justify-content: center;
+      margin-left: 10%;
+      margin-right: 10%;
+      opacity: 85%;
+      border-radius: 50% 0% 50% 0%;
+  
+    }
+  
+    .flex-container > div {
+      background-color: #f1f1f1;
+      margin-left: 50px;
+      margin-right: 50px;
+      width: 80%;
+      color: white;
+      font-size: 20px;
+      text-align: justify;
+      background-color: transparent;
+    }
+  
+    /*naslov home css*/
+    .home-text {
+      position: relative;
+      transition: transform 0.2s;
+      text-align: center;
+      margin-left: 470px;
+      margin-right: 470px;
+      color: white;
+      z-index: 1;
+      font-size: 30px;
+      padding: 2px;
+      padding-top: 20px;
+    }
+  
+    .home-text:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2px;
+      padding-top: 20px;
+      width: 0%;
+      height: 100%;
+      border-radius: 50% 0% 50% 0%;
+      background-color: rgba(255, 249, 215, 0);
+      transition: all 0.5s;
+      z-index: -1;
+  
+    }
+  
+    .home-text:hover:after {
+      width: 100%;
+      background-color: #fd9648;
+    }
+    .home-text:hover {
+      transform: scale(1.1);
+  
+    }
