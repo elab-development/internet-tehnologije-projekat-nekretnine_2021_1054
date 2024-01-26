@@ -4,6 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Properties from './components/Properties';
 import { useState } from 'react';
+import Bookings from './components/Bookings';
 
 function App() {
 
@@ -33,6 +34,10 @@ function App() {
             <Route
             path="properties"
             element={<Properties onAddToBookings={handleAddToBookings}></Properties>}>
+            </Route>
+            <Route
+            path="bookings"
+            element={<Bookings selectedProperties={selectedProperties} />}>
             </Route>
           </Routes>
      </BrowserRouter>
