@@ -1,0 +1,59 @@
+.about-us-page {
+    padding-top: 50px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    min-height: 800px;
+    background-image: url('https://s.yimg.com/ny/api/res/1.2/8ouuTvopeJoYWEIgIQU8Xg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/gobankingrates_644/344a40a5582c45d709f44cb95be54af0');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+  .about-text{
+    padding: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgb(43,41,78);
+    justify-content: center;
+    opacity: 85%;
+    border-radius: 50% 0% 50% 0%;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .about-us-page h2 {
+    color: #fd9648 ;
+  }
+  
+  .about-us-page p {
+    font-size: 19px;
+    line-height: 1.5;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .icon {
+    font-size: 30px;
+    color: #333;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #eee;
+    transition: background-color 0.3s;
+    margin: 10px;
+    margin-top: -15px;
+  }
+  
+  .icon:hover {
+    background-color: #fd9648;
+  }
+
+  

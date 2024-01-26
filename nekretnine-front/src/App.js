@@ -11,6 +11,10 @@ function App() {
             path="/" 
             element={<Home/>}>
           </Route>
+          <Route
+            path="about"
+            element={<About />}>
+            </Route>
           </Routes>
      </BrowserRouter>
     </div>
