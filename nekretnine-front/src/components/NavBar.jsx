@@ -18,7 +18,9 @@ function NavBar() {
                 <li className="nav__item"><Link to='/about'>O nama</Link></li>
                 <li className="nav__item"><Link to='/properties'>Nekretnine</Link></li>
                 <li className="nav__item"><Link to='/bookings'>Lista zelja</Link></li>
-                <li className="nav__item"><Link to='/book'>Kupovina</Link></li>
+                {
+                    ulogovan ? <li className="nav__item"><Link to='/book'>Kupovina</Link></li> : ''
+                }
                 {
                     isAdmin ? <li className="nav__item"><Link to='/admin'>Admin</Link></li> : ''
                 }
