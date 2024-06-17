@@ -6,8 +6,28 @@ import { FaCircleInfo } from "react-icons/fa6";
 import { FaFacebook } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa6';
 import { FaTwitter } from 'react-icons/fa6';
+import {Col, Image, Row} from "react-bootstrap";
+import instance from "../logic/instance";
 
 const About = () => {
+
+    const [person, setPerson] = React.useState(null);
+
+    React.useEffect(() => {
+        //https://randomuser.me/api/
+
+        instance.get('https://randomuser.me/api/')
+            .then((response) => {
+                console.log(response.data.results[0]);
+                setPerson(response.data.results[0]);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }, []);
+
+
   return (
     <>
     <NavBar></NavBar>
@@ -29,6 +49,8 @@ const About = () => {
         svojim kriterijumima i dodajte  nekretnine na svoju listu rezervacija. Hvala vam
         što ste odabrali našu platformu, i želimo vam ugodno iskustvo u potrazi za vašim novim domom!
       </p>
+
+
       <p>KONTAKTIRAJTE NAS: </p>
       <div className="social-icons">
         
@@ -42,6 +64,28 @@ const About = () => {
             <FaTwitter className="icon" />
           </a>
         </div>
+
+            {
+                person && (
+                    <>
+                        <Row style={{
+                            color: 'white',
+                        }} className="mt-5">
+                            <Col md={12}>
+                                <h1>Nas najbolji agent godine</h1>
+                                <h3>{person.email}</h3>
+                                <h3>{person.phone}</h3>
+                            </Col>
+                            <Col md={12}>
+                                <Image src={person.picture.large} roundedCircle />
+
+                                <h1>{person.name.first} {person.name.last}</h1>
+                            </Col>
+                        </Row>
+                        <br/>
+                    </>
+                )
+            }
       </div>
     </div>
     
