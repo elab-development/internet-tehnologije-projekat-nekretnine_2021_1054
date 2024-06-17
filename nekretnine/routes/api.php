@@ -36,6 +36,8 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::get('grafik', [KupovinaController::class, 'groupNumberOfKupovinaPerAgent']);
 
+Route::get('detalji', [KupovinaController::class, 'getkupovinaDetalji']);
+
 
 //rute za koje je potrebna autentifikacija
 Route::group(['middleware' => ['auth:sanctum']], function () {

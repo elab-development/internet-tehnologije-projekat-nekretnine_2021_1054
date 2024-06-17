@@ -102,4 +102,19 @@ class KupovinaController extends Controller
         ]);
     }
 
+    public function getkupovinaDetalji(Request $request)
+    {
+        $kupovine = DB::table('kupovine')
+            ->join('nekretnine', 'kupovine.nekretnina_id', '=', 'nekretnine.id')
+            ->join('users', 'kupovine.user_id', '=', 'users.id')
+            ->join('agenti', 'kupovine.agent_id', '=', 'agenti.id')
+            ->select('kupovine.*', 'nekretnine.adresa', 'nekretnine.grad', 'users.name as kupac', 'agenti.imePrezime as agent')
+            ->get();
+
+        return response()->json([
+            'uspesno' => true,
+            'data' => $kupovine
+        ]);
+    }
+
 }
