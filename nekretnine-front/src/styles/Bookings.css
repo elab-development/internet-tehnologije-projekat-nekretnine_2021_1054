@@ -92,7 +92,7 @@
         margin-left: 470px;
         margin-right: 470px;
         margin-top: 50px;
-        color: white;
+        color: #000;
         z-index: 1;
         font-size: 30px;
         padding: 10px;
@@ -122,7 +122,7 @@
       }
       .booking-text:hover {
         transform: scale(1.1);
-    
+        color: #fff;
       }
 
       .booking-cost{

@@ -8,7 +8,7 @@ function Footer() {
         <div>
             <footer className="footer-container"> 
                 <div className="footer-text" >
-                    © 2022 Copyright: NekretninePlus
+                    © 2024 Copyright: NekretninePlus
                 </div> 
                 <div className="footer-text" >
                     Email: nekretnine.plus@gmail.com

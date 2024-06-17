@@ -5,35 +5,52 @@ import ReactPaginate from 'react-paginate';
 import NavBar from './NavBar';
 import Property from './Property';
 import Footer from './Footer';
+import {Container} from "react-bootstrap";
+import instance from "../logic/instance";
 
 const Properties = ({ onAddToBookings }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');  //kriterijum za pretragu
     const [selectedPropertyType, setSelectedPropertyType] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const [filteredProperties, setFilteredProperties] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const propertiesPerPage = 2;
+    const [properties, setProperties] = useState([]);
+
+    useEffect(() => {
+        instance.get('nekretnine')
+            .then((response) => {
+                console.log(response.data.data);
+                setProperties(response.data.data);
+                setFilteredProperties(response.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
   
     const applyFilters = (search, type, min, max) => {
-      const filtered = staticPropertiesData.filter(property => {
+      const filtered = properties.filter(property => {  //filtriramo po property gde vracamo
         return (
-          (search === '' || property.description.toLowerCase().includes(search.toLowerCase()) || property.title.toLowerCase().includes(search.toLowerCase())) &&
-          (type === '' || property.type === type) &&
-          (min === '' || parseInt(property.price) >= parseInt(min)) &&
-          (max === '' || parseInt(property.price) <= parseInt(max))
+          (search === '' || property.adresa.toLowerCase().includes(search.toLowerCase()) || property.grad.toLowerCase().includes(search.toLowerCase())) &&
+          (type === '' || property.vrsta_nekretnine === type) &&
+          (min === '' || parseInt(property.cena) >= parseInt(min)) &&
+          (max === '' || parseInt(property.cena) <= parseInt(max))
         );
       });
   
       setFilteredProperties(filtered);
     };
+    //vrsi pretragu
   
     useEffect(() => {
-      applyFilters(searchTerm, selectedPropertyType, minPrice, maxPrice);
+      applyFilters(searchTerm, selectedPropertyType, minPrice, maxPrice); //vraca dva argumenta, prvi su atributi, a drugi je niz zavisnosti
     }, [searchTerm, selectedPropertyType, minPrice, maxPrice]);
-  
+   // neki event 
+
     const handleSearchChange = (e) => {
-      setSearchTerm(e.target.value);
+      setSearchTerm(e.target.value);  
     };
   
     const handleTypeChange = (e) => {
@@ -58,11 +75,10 @@ const Properties = ({ onAddToBookings }) => {
     const handlePageChange = ({ selected }) => {
       setCurrentPage(selected);
     };
-
-    const pageCount = Math.ceil(filteredProperties.length / propertiesPerPage);
-    const offset = currentPage * propertiesPerPage;
-    const currentProperties = filteredProperties.slice(offset, offset + propertiesPerPage);
-   
+// paginacija, pagecount koliko cemo imati stranica
+    const pageCount = Math.ceil(filteredProperties.length / propertiesPerPage);  
+    const offset = currentPage * propertiesPerPage;  
+    const currentProperties = filteredProperties.slice(offset, offset + propertiesPerPage);  
     return (
       <>
         <NavBar />
@@ -70,17 +86,17 @@ const Properties = ({ onAddToBookings }) => {
           <div className="search-container">
             <input
               type="text"
-              placeholder="Pretraga po opisu ili naslovu"
+              placeholder="Pretraga po gradu ili adresi"
               value={searchTerm}
               onChange={handleSearchChange}
             />
-            <select
+            <select  
               value={selectedPropertyType}
               onChange={handleTypeChange}
             >
               <option value="">Svi tipovi</option>
               <option value="Stan">Stan</option>
-              <option value="Kuća">Kuća</option>
+              <option value="Kuca">Kuća</option>
               <option value="Apartman">Apartman</option>
               <option value="Vikendica">Vikendica</option>
               <option value="Poslovni prostor">Poslovni prostor</option>
@@ -101,17 +117,20 @@ const Properties = ({ onAddToBookings }) => {
             Resetuj pretragu
             </button>
           </div>
+          
+          
+            <Container>
 
           <div className='properties-list'> 
           {currentProperties.map((property) => (
-            <Property key={property.id} property={property} onAddToBookings={onAddToBookings} />
-          ))}
+            <Property key={property.id} property={property} onAddToBookings={onAddToBookings} />  //!!!
+          ))}  
           </div>
          
         <div className='pagination'>
             <ReactPaginate
-              previousLabel={'Previous'}
-              nextLabel={'Next'}
+              previousLabel={'Prethodna'}
+              nextLabel={'Sledeca'}
               breakLabel={'...'}
               pageCount={pageCount}
               marginPagesDisplayed={2}
@@ -121,6 +140,8 @@ const Properties = ({ onAddToBookings }) => {
               activeClassName={'active'}
             />           
         </div>
+
+        </Container>
      </div>
      <Footer></Footer>
       </>

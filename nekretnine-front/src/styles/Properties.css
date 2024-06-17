@@ -1,5 +1,4 @@
 .property-page {
-  width: 100%;
   margin: 0 auto;
   padding-top: 20px;
   background-image: url('https://asset.mansionglobal.com/editorial/Shenzhens-Tech-Boom-How-the-Sector-is-Transforming-the-Chinese-Citys-Real-Estate-Market/assets/bY4312oZO5/shenzen2-1722x1098.jpeg');
@@ -60,7 +59,6 @@
 
 .properties-list {
   padding-top: 50px;
-  width: 1600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -75,7 +73,6 @@
   overflow: hidden;
   background-color: #fff;
   transition: box-shadow 0.3s;
-  width: 600px;
 }
 
 .property-card:hover {

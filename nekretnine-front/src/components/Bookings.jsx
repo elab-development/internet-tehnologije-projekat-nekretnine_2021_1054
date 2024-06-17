@@ -3,15 +3,15 @@ import NavBar from './NavBar';
 import '../styles/Bookings.css';
 import { useState } from 'react';
 import Footer from './Footer';
+import {Col, Container, Row} from "react-bootstrap";
 
 const Bookings = ({ selectedProperties }) => {
 
     const [bookedProperties, setBookedProperties] = useState(selectedProperties);
 
-    const totalCost = bookedProperties.reduce((total, property) => total + property.price, 0);
+    const totalCost = bookedProperties.reduce((total, property) => total + property.cena, 0);
   
     const handleMakeBookings = () => {
-        alert('Uspesno napravljena rezervacija izabranih nekretnina!');
         setBookedProperties([]);
         window.location.reload();
       };
@@ -24,36 +24,44 @@ const Bookings = ({ selectedProperties }) => {
                 {bookedProperties.length > 0 ? 
                 'Moje nekretnine izabrane za rezervaciju' : 'Nemate nekretnina za rezervaciju'}
             </div>
+              <Container>
             {bookedProperties.length > 0 && (
               <>
-                <div className="bookings-list">
+                <div className="properties-list">
                   {selectedProperties.map((property) => (
                     <div className="property-card" key={property.id}>
                       <div className="property-header">
-                        <h3>{property.title}</h3>
+                        <h3>{property.grad} - {property.adresa}</h3>
                       </div>
                       <div className="property-content">
-                        <p>Opis nekretnine: {property.description}</p>
-                        <p>Cena nekretnine: {property.price}</p>
-                        <p>Broj soba: {property.bedrooms}</p>
-                        <p>Tip nekretnine: {property.type}</p>
-                        <img src={property.image} alt={property.title} />
+                          <p>Adresa: {property.adresa}</p>
+                          <p>Grad: {property.grad}</p>
+                          <p>Cena nekretnine: {property.cena} &euro;</p>
+                          <p>Broj soba: {property.broj_soba}</p>
+                          <p>Vrsta nekretnine: {property.vrsta_nekretnine}</p>
+                          <br></br>
+                          <img src={property.link_slike} alt={property.grad}/>
+
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className='booking-cost'>
-                <p>Ukupna cena rezervacije: {totalCost}</p>
+                <p>Ukupna cena: {totalCost}</p>
                 <button className="clear-bookings-button" onClick={handleMakeBookings}>
-                  Napravi rezervaciju
+                  Obrisi listu zelja
                 </button>
+
                 </div>
+
               </>
             )}
+              </Container>
           </div>
-          <Footer></Footer>
+
+            <Footer/>
         </>
       );
-    };
-    
-    export default Bookings;
+};
+
+export default Bookings;

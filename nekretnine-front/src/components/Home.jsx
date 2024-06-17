@@ -6,7 +6,7 @@ import Footer from './Footer';
 function Home() {
   return (
     <div>
-    <NavBar></NavBar>
+    <NavBar />
     <div className='home'>
         
       <div className="home-text">
@@ -43,7 +43,7 @@ function Home() {
         </div>
       </div>
     </div>
-    <Footer></Footer>
+    <Footer />
     </div>
   );
 }

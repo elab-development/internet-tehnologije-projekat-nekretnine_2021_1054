@@ -1,10 +1,16 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Properties from './components/Properties';
 import { useState } from 'react';
 import Bookings from './components/Bookings';
+import Login from "./components/Login";
+import Register from "./components/Register";
+import instance from "./logic/instance";
+import Book from "./components/Book";
+import Admin from "./components/Admin";
 
 function App() {
 
@@ -37,8 +43,24 @@ function App() {
             </Route>
             <Route
             path="bookings"
-            element={<Bookings selectedProperties={selectedProperties} />}>
+            element={<Bookings selectedProperties={selectedProperties}/>}>
             </Route>
+            <Route
+              path="login"
+              element={<Login />}>
+            </Route>
+            <Route
+                path="register"
+                element={<Register />}>
+            </Route>
+            <Route
+                path="book"
+                element={<Book selectedProperties={selectedProperties} />}>
+            </Route>
+          <Route
+              path="admin"
+              element={<Admin />}>
+          </Route>
           </Routes>
      </BrowserRouter>
     </div>
