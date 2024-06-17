@@ -9,7 +9,7 @@ class Kupovina extends Model
 {
     use HasFactory;
 
-    protected $table = 'Kupovine';
+    protected $table = 'kupovine';
 
     protected $fillable = [
         'datumKupovine',
@@ -17,10 +17,11 @@ class Kupovina extends Model
         'agent_id',
         'nekretnina_id',
         'user_id',
+        'statusKupovine'
     ];
 
 
-    
+
     public function agent()
     {
         return $this->belongsTo(Agent::class);
@@ -30,7 +31,7 @@ class Kupovina extends Model
     {
         return $this->belongsTo(Nekretnina::class);
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -44,7 +45,7 @@ class User extends Authenticatable
     ];
 
 
-    
+
     public function kupovine()
     {
         return $this->hasMany(Kupovina::class);

@@ -9,7 +9,7 @@ class Nekretnina extends Model
 {
     use HasFactory;
 
-    protected $table = 'Nekretnine';
+    protected $table = 'nekretnine';
 
     protected $fillable = [
         'adresa',
@@ -21,7 +21,7 @@ class Nekretnina extends Model
         'cena',
     ];
 
-    
+
     public function kupovine()
     {
         return $this->hasMany(Kupovina::class);

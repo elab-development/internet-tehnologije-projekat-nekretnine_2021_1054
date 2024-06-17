@@ -16,13 +16,13 @@ class KupovinaResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ID -> ' => $this->resource->id,
-            'Datum kupovine -> ' => $this->resource->datumKupovine,
-            'Nacin placanja -> ' => $this->resource->nacinPlacanja,
-            'Status kupovine-> ' => $this->resource->statusKupovine,
-            'Agent koji je zaduzen za kupovinu -> ' => new AgentResource($this->resource->agent),
-            'Kupljena nekretnina-> ' => new NekretninaResource($this->resource->nekretnina),
-            'Korisnik koji kupuje nekretninu-> ' => new UserResource($this->resource->user),
+            'id' => $this->resource->id,
+            'datum_kupovine' => $this->resource->datumKupovine,
+            'nacin_placanja' => $this->resource->nacinPlacanja,
+            'status_kupovine' => $this->resource->statusKupovine,
+            'agent' => new AgentResource($this->resource->agent),
+            'nekretnina' => new NekretninaResource($this->resource->nekretnina),
+            'korisnik' => new UserResource($this->resource->user),
         ];
     }
 }

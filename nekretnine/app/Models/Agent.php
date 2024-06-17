@@ -9,8 +9,8 @@ class Agent extends Model
 {
     use HasFactory;
 
-    
-    protected $table = 'Agenti';
+
+    protected $table = 'agenti';
 
     protected $fillable = [
         'imePrezime',

@@ -20,7 +20,11 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['Greska:', $validator->errors()]);
+            return response()->json([
+                'uspesno' => false,
+                'poruka' => 'Greska pri validaciji',
+                'greske' => $validator->errors()
+            ]);
         }
 
         $user = User::create([
@@ -32,9 +36,10 @@ class AuthController extends Controller
         $token = $user->createToken('TokenReg')->plainTextToken;
 
         $odgovor = [
-            'Poruka' => 'Uspesna registracija!',
-            'User: ' => $user,
-            'Token: ' => $token,
+            'uspesno' => true,
+            'poruka' => 'Uspesna registracija',
+            'user' => $user,
+            'token' => $token,
         ];
 
         return response()->json($odgovor);
@@ -49,11 +54,17 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['Greska:', $validator->errors()]);
+            return response()->json([
+                'uspesno' => false,
+                'poruka', $validator->errors()
+            ]);
         }
 
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['Greska: ' => 'Pokusajte ponovo!']);
+            return response()->json([
+                'uspesno' => false,
+                'poruka' => 'Pogresni podaci'
+            ]);
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
@@ -61,9 +72,10 @@ class AuthController extends Controller
         $token = $user->createToken('TokenLogin')->plainTextToken;
 
         $odgovor = [
-            'Poruka' => 'Uspesan login',
-            'User: ' => $user,
-            'Token: ' => $token,
+            'uspesno' => true,
+            'poruka' => 'Uspesan login',
+            'user' => $user,
+            'token' => $token,
         ];
 
         return response()->json($odgovor);
