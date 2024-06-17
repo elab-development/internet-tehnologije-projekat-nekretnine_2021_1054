@@ -26,9 +26,9 @@ class KupovinaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nekretnina_id' => 'required',
-            'user_id' => 'required',
-            'agent_id' => 'required',
+            'nekretnina_id' => 'required|numeric',
+            'user_id' => 'required|numeric',
+            'agent_id' => 'required|numeric',
             'nacinPlacanja' => 'required',
         ]);
 
