@@ -40,3 +40,10 @@
     transform: rotate(360deg);
   }
 }
+.download-dugme a{
+  color: black;
+    text-decoration: none;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+  margin-bottom: 10px;
+}

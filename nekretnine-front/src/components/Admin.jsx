@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import {Container, Row, Table} from "react-bootstrap";
 import instance from "../logic/instance";
 import {Chart} from "react-google-charts";
+import {CSVLink} from "react-csv";
 
 const Admin = () => {
 
@@ -42,7 +43,7 @@ const Admin = () => {
     }, []);
 
     const odobri = (id) => {
-        instance.put(`odobri/${id}`,{})
+        instance.put(odobri/`${id}`,{})
             .then((response) => {
                 console.log(response.data);
                 setKupovineNaCekanju(kupovineNaCekanju.filter(kupovina => kupovina.id !== id));
@@ -53,7 +54,7 @@ const Admin = () => {
     }
 
     const odbij = (id) => {
-        instance.put(`odbij/${id}`,{})
+        instance.put(odbij/`${id}`,{})
             .then((response) => {
                 console.log(response.data);
                 setKupovineNaCekanju(kupovineNaCekanju.filter(kupovina => kupovina.id !== id));
@@ -118,6 +119,12 @@ const Admin = () => {
                         height={"400px"}
                     />
                 </Row>
+
+                <div className="mt-3 download-dugme">
+
+                    <CSVLink data={chartData}>Skini podatke iz grafika</CSVLink>
+                </div>
+
 
             </Container>
             <Footer/>
