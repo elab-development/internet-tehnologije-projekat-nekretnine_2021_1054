@@ -11,7 +11,7 @@ const Admin = () => {
     const [kupovineNaCekanju, setKupovineNaCekanju] = React.useState([]);
 
     useEffect(() => {
-        instance.get('kupovineNaCekanju')
+        instance.get('/kupovineNaCekanju')
             .then((response) => {
                 console.log(response.data.data);
                 setKupovineNaCekanju(response.data.data);
@@ -43,7 +43,7 @@ const Admin = () => {
     }, []);
 
     const odobri = (id) => {
-        instance.put(odobri/`${id}`,{})
+        instance.put('/odobri/' + id)
             .then((response) => {
                 console.log(response.data);
                 setKupovineNaCekanju(kupovineNaCekanju.filter(kupovina => kupovina.id !== id));
@@ -54,7 +54,7 @@ const Admin = () => {
     }
 
     const odbij = (id) => {
-        instance.put(odbij/`${id}`,{})
+        instance.put('/odbij/' + id)
             .then((response) => {
                 console.log(response.data);
                 setKupovineNaCekanju(kupovineNaCekanju.filter(kupovina => kupovina.id !== id));
